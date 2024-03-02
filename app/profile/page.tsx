@@ -1,24 +1,30 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { PersonIcon } from "@radix-ui/react-icons"
+import Header from "@/components/Header";
+import OrgCards from "../home/components/OrgCards";
+import ProfileEdit from "./components/ProfileEdit";
 
+function Profile() {
+  return (
+    <>
+    
+    <Header />
+    <div className="flex bg-[#1E5799] dark:bg-[#173353]">
+        <div className=" h-[92vh] w-[65%] ">
+            
+        </div>
+        <div className="grid w-[34%] flex-grow h-full gap-4 p-5">
+            <OrgCards 
+                title="Organizations"
+                description="These are the organizations you are a part of."
+            />
+            <OrgCards 
+                title="Events"
+                description="These are the events you are a part of."
+            />
 
-const Page = () => {
-    return (
-        <main className="p-2">
-            <div>
-                <div className="flex gap-4">
-                    <Avatar className="w-36 h-36">
-                        <AvatarImage src="" alt="" />
-                        <AvatarFallback className="w-36 h-36"><PersonIcon className="w-28 h-28" /></AvatarFallback>
-                    </Avatar>
-                    <div>
-                        <p className="text-5xl font-mono">Mehul Shardana</p>
-                        <p className="">mehul.sardana54984@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    )
+        </div>
+    </div>
+    </>
+  )
 }
 
-export default Page
+export default Profile;
