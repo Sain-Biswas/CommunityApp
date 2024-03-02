@@ -3,10 +3,10 @@
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import Person from '@/src/resources/Icons/Person';
+import Person from '@/resources/Icons/Person';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
-// import { signIn, useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form';
@@ -26,16 +26,16 @@ const loginSchema = z.object({
 type loginFormType = z.infer<typeof loginSchema>
 
 const Login = () => {
-    // const session = useSession();
+    const session = useSession();
     const router = useRouter();
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [isUploading, setIsUploading] = useState<boolean>(false);
 
     useEffect(() => {
-        // if (session?.status === 'authenticated') {
-        //     router.push('/home');
-        // }
+        if (session?.status === 'authenticated') {
+            router.push('/home');
+        }
     });
 
     const loginForm = useForm<loginFormType>({
@@ -46,22 +46,22 @@ const Login = () => {
         const email = values.userName;
         const password = values.password;
 
-        // signIn('credentials', {
-        //     email,
-        //     password,
-        //     redirect: false
-        // }).then((callback) => {
-        //     if (callback?.error) {
-        //         toast.error("Credentials Wrong.")
-        //     }
+        signIn('credentials', {
+            email,
+            password,
+            redirect: false
+        }).then((callback) => {
+            if (callback?.error) {
+                toast.error("Credentials Wrong.")
+            }
 
-        //     if (callback?.ok && !callback.error) {
-        //         toast.success("Logged In Successfully.");
-        //         router.push('/home');
-        //     }
-        // }).finally(() => {
-        //     setIsUploading(false);
-        // })
+            if (callback?.ok && !callback.error) {
+                toast.success("Logged In Successfully.");
+                router.push('/routetest');
+            }
+        }).finally(() => {
+            setIsUploading(false);
+        })
     }
 
     return (

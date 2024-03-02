@@ -5,18 +5,12 @@ import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
-import { Calendar } from '@/components/ui/calendar';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Popover } from '@/components/ui/popover';
-import { cn } from '@/lib/utils';
 
-import Email from '@/src/resources/Icons/Email';
-import Gender from '@/src/resources/Icons/Gender';
-import Person from '@/src/resources/Icons/Person';
-import { CalendarIcon, EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
-import { PopoverContent, PopoverTrigger } from '@radix-ui/react-popover';
+import Email from '@/resources/Icons/Email';
+import Person from '@/resources/Icons/Person';
+import { EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 import axios from 'axios';
-import { format } from 'date-fns';
 import { useState } from "react";
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';

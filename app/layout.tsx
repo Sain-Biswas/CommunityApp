@@ -1,6 +1,8 @@
+import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import AuthContext from "./AuthContext";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
 
@@ -31,7 +33,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AuthContext>
+            {children}
+            <Toaster />
+          </AuthContext>
         </ThemeProvider>
       </body>
     </html>
