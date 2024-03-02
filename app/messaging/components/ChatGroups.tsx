@@ -1,8 +1,13 @@
-'use client';
+import { Button } from "@/components/ui/button"
+import ChatRoutes from "./ChatRoutes"
+
 
 const ChatGroups = () => {
+
     return (
-        <div>ChatGroups</div>
+        <div className="p-1 w-full h-full">
+            <ChatRoutes />
+        </div>
     )
 }
 
