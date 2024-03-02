@@ -14,22 +14,17 @@ datasource db {
 }
 
 model Users {
-  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
   name           String?
-  role           String?
-  email          String?   @unique
-  emailVerified  DateTime?
+  email          String?  @unique
   image          String?
-  githubLink     String?
+  collegeName    String?
   hashedPassword String?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
   conversationIds String[]       @db.ObjectId
   conversations   Conversation[] @relation(fields: [conversationIds], references: [id])
-
-  projectIds String[]  @db.ObjectId
-  projects   Project[] @relation("Project", fields: [projectIds], references: [id])
 
   seenMessageIds String[]  @db.ObjectId
   seenMessages   Message[] @relation("Seen", fields: [seenMessageIds], references: [id])
@@ -62,6 +57,7 @@ model Conversation {
   createdAt     DateTime @default(now())
   lastMessageAt DateTime @default(now())
   name          String?
+  desc          String?
   image         String?
   isGroup       Boolean?
 
@@ -70,21 +66,6 @@ model Conversation {
 
   UsersIds String[] @db.ObjectId
   Userss   Users[]  @relation(fields: [UsersIds], references: [id])
-}
-
-model Project {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  name           String
-  image          String?
-  githubLink     String?
-  createdAt      DateTime @default(now())
-  admin          String
-  roleAssign     String[] @default([])
-  chatAllowed    Boolean?
-  conversationID String?
-
-  UsersIds String[] @db.ObjectId
-  Userss   Users[]  @relation("Project", fields: [UsersIds], references: [id])
 }
 
 model Message {
