@@ -1,3 +1,4 @@
+"use client";
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -39,8 +40,8 @@ function ProfileEdit() {
         React.createElement("div", { className: "flex flex-col justify-center items-center" },
             React.createElement(avatar_1.Avatar, { className: "w-80 h-80 rounded-ful justify-center items-center flex flex-col" },
                 React.createElement(avatar_1.AvatarImage, { src: "", alt: "" }),
-                React.createElement(avatar_1.AvatarFallback, { className: "w-70 h-70 rounded-full" },
-                    React.createElement(react_icons_1.PersonIcon, { className: "h-64 w-64" }))),
+                React.createElement(avatar_1.AvatarFallback, { className: "w-72 h-72 rounded-full" },
+                    React.createElement(react_icons_1.PersonIcon, { className: "h-56 w-56" }))),
             React.createElement(form_1.Form, __assign({}, form),
                 React.createElement("div", { className: "flex flex-col items-center" },
                     React.createElement("form", { onSubmit: form.handleSubmit(onSubmit), className: "space-y-8 justify-center items-center flex flex-col" },

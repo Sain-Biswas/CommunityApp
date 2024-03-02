@@ -1,4 +1,4 @@
-
+"use client";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod";
@@ -40,8 +40,8 @@ function ProfileEdit() {
 
     <Avatar className="w-80 h-80 rounded-ful justify-center items-center flex flex-col">
         <AvatarImage src="" alt="" />
-        <AvatarFallback className="w-70 h-70 rounded-full">
-        <PersonIcon className="h-64 w-64" />
+        <AvatarFallback className="w-72 h-72 rounded-full">
+        <PersonIcon className="h-56 w-56" />
         </AvatarFallback>
     </Avatar>
 
