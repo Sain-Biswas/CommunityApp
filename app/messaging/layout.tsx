@@ -1,5 +1,6 @@
 import React from "react"
 import ChatGroups from "./components/ChatGroups"
+import Header from "@/components/Header"
 
 
 const layout = ({
@@ -8,6 +9,8 @@ const layout = ({
     children: React.ReactNode
 }) => {
     return (
+        <>
+            <Header />
         <div className="flex h-[92vh]">
             <div className="w-64 border-r border-primary hidden md:block">
                 <ChatGroups />
@@ -16,6 +19,8 @@ const layout = ({
                 {children}
             </div>
         </div>
+        </>
+        
     )
 }
 
