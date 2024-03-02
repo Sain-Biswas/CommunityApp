@@ -44,7 +44,7 @@ export const authOptions: AuthOptions = {
                     throw new Error('Incorrect Password \n Please try again');
                 }
 
-                return user;
+                return { name: user.id, email: user.email, } as any;
             },
         })
     ],

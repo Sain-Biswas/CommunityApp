@@ -34,7 +34,7 @@ const Login = () => {
 
     useEffect(() => {
         if (session?.status === 'authenticated') {
-            router.push('/home');
+            router.push('/routetest');
         }
     });
 
