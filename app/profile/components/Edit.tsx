@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,11 +7,16 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 
-import ProfileEdit from "./ProfileEdit"
+import ProfileEdit from "./ProfileEdit";
+import { Users } from "@prisma/client";
 
-function Edit() {
+function Edit({
+  user
+}: {
+  user: Users | null
+}) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -21,13 +26,10 @@ function Edit() {
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
-        <ProfileEdit />
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
+        <ProfileEdit user={user} />
       </DialogContent>
     </Dialog>
   )

@@ -34,7 +34,7 @@ const Login = () => {
 
     useEffect(() => {
         if (session?.status === 'authenticated') {
-            router.push('/routetest');
+            router.push('/home');
         }
     });
 
@@ -57,7 +57,7 @@ const Login = () => {
 
             if (callback?.ok && !callback.error) {
                 toast.success("Logged In Successfully.");
-                router.push('/routetest');
+                router.push('/home');
             }
         }).finally(() => {
             setIsUploading(false);
